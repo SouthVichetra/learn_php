@@ -28,11 +28,51 @@
         header('WWW-Authenticate: Basic realm="Restricted Are"');
         
         // The HTTP 401 Unauthorized status code tells the browser that access is denied until valid credentials are provided.
+        // 401 means: Authentication required
         header('HTTP/1.1 401 Unauthorized');
 
         //If the user clicks Cancel, execution halts and the die() message displays.
         die ("Please enter your username and password");
     }
 
+?>
+
+<?php 
+    //workFlow
+    
+    /**User visits page
+        │
+        ▼
+Credentials supplied?
+        │
+   ┌────┴────┐
+   │         │
+  NO        YES
+   │         │
+   ▼         ▼
+Show popup  Search user
+             │
+             ▼
+        User found?
+             │
+       ┌─────┴─────┐
+       │           │
+      NO          YES
+       │           │
+       ▼           ▼
+ User not     Verify password
+   found           │
+                   ▼
+            Password correct?
+                   │
+            ┌──────┴──────┐
+            │             │
+           NO            YES
+            │             │
+            ▼             ▼
+       Invalid      Logged in
+       password
+       
+       */
 
 ?>
