@@ -24,8 +24,13 @@
             echo htmlspecialchars("$fn $sn : Hi $fn, you are now logged in as '$us'");
         } else die("Invalid username/password combination");
     } else {
+        // instructs the browser to open a native popup dialog asking for a Username and Password.
         header('WWW-Authenticate: Basic realm="Restricted Are"');
+        
+        // The HTTP 401 Unauthorized status code tells the browser that access is denied until valid credentials are provided.
         header('HTTP/1.1 401 Unauthorized');
+
+        //If the user clicks Cancel, execution halts and the die() message displays.
         die ("Please enter your username and password");
     }
 
